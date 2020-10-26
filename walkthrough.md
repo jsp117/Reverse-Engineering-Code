@@ -60,4 +60,4 @@ This file contains all html routes for the site, used to display different html 
 ## Base Folder
 
 ## server.js
-
+The server.js file sets up our connection using express. It requires express, express-session, passport, and the models folder. Express provides the web framework used to set up the site. Express session creates a session id and saves it as a cookie. It also saves session-data to the database including the date created and date updated. Passport keeps track of a users login status. The model is used to sync the database and display connection status in console. 
