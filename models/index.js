@@ -1,5 +1,6 @@
+// forces code to execute in strict mode - different semantics than normal code
 'use strict';
-
+// sequelize base code
 var fs        = require('fs');
 var path      = require('path');
 var Sequelize = require('sequelize');
