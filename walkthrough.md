@@ -23,6 +23,18 @@ The file user.js
 
 ## Public
 
+## login.html
+
+This file contains the html for the login page. It includes a navbar, and a form containing two text fields and a button. These elements are referred to in login.js.
+
+## members.html
+
+This file contains the html for the members page. It includes a navbar and a container with a header used to display the user email in the member-name span.
+
+## signup.html
+
+This file contains the html for the signup page. It includes a navbar, and a form containing two text fields and a button. These elements are referred to in signup.js.
+
 ## JS Folder
 
 ## login.js
@@ -40,9 +52,10 @@ This is the CSS stylesheet for the site. It sets the margin-top of the signup an
 ## Routes
 
 ## api-routes.js
-This file contains all api routes for the site. It requires our models and passport. It calls the functions in models in order to create, read, update and delete information from the database. It uses passport in order to authenticate user submitted information. On line 9, the /api/login route is used and populated with the user inputted information passed from our front-end JavaScript. This information is authenticated using passport. On line 16, The 
+This file contains all api routes for the site. It requires our models and passport. It calls the functions in models in order to create, read, update and delete information from the database. It uses passport in order to authenticate user submitted information. On line 9, the /api/login route is used and populated with the user inputted information passed from our front-end JavaScript. This information is authenticated using passport. On line 16, the post method is used to call the /api/signup route. The create Sequelize function is used to insert the user inputted email and password into the database. If the information is inserted successfully, the user is brought to the login form. If there is an error, the error status 401 is displayed in the console. On line 30, when the logout route is called, the user is logged out and redirected to the login page. On line 36, when the user_data route is called, the code on line 37 checks if they are logged in. If they arent, an empty object is sent back. If they are, the user email and id are returned. 
 
 ## html-routes.js
+This file contains all html routes for the site, used to display different html files and changing the information displayed. It requires path so that realtive routes can be used. It also requires the middleware isAuthenticated.js in order to check if a user is logged in, controlling what is displayed for logged in and logged out users. on line 9, the base route "/" is used. The if statement starting on 11 controls what is shown for users with an account, and those without. If the user has an account, they are redirected to the /members page. If not, they are directed to the signup page. On line 17, the /login route is used. If the user has an account they are redirected to the /members page. If not they are sent to the login page. On line 27, the isAuthenticated function is used to check if a user is logged in or not. If a user without an account tries to access the /members route they are redirected to the signup page. 
 
 ## Base Folder
 
