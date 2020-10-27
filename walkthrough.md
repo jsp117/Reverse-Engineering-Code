@@ -14,12 +14,11 @@ This file restricts routes depending on if a user is logged in or not. If a user
 ## Models
 
 ## index.js
-The index.js file inside the models folder consists of sequelize boilerplate code. 
+The index.js file inside the models folder consists of Sequelize boilerplate code. It reads all files inside the models folder and sets them up to be used with Sequelize
 
-<!-- This code is created by Sequelize to process the config file and connect to the database. -->
 
 ## user.js
-The file user.js 
+The file user.js is the model for the site. It generates the tables and columns in MySQL. On line 5 the Model "User" begins by declaring it and defining it through sequelize. This table has the columns of email - set as String in line 7. It is not allowed to be null and it is validated to be an email consisting of "text@hostname.com". The password column begins at line 16 and is also defined as a string and not allowed to be null. On line 19 a prototype is added which adds a custom method that checks if the unhashed password entered by the user matches the hashed password in the database. Bcrypt is used to encrypt passwords. On line 27 a hook is added that runs before a user is created.
 
 ## Public
 

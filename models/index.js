@@ -15,6 +15,7 @@ if (config.use_env_variable) {
   var sequelize = new Sequelize(config.database, config.username, config.password, config);
 }
 
+// reads each file in models folder - removes .js
 fs
   .readdirSync(__dirname)
   .filter(function(file) {
