@@ -1,3 +1,4 @@
+// initialize variables, require passport and passport strategy
 var passport = require("passport");
 var LocalStrategy = require("passport-local").Strategy;
 
