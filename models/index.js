@@ -30,7 +30,8 @@ fs
     var model = sequelize['import'](path.join(__dirname, file));
     db[model.name] = model;
   });
-// takes each key from db - model names loops around them - if that model has any associations(connections between tables)
+// takes each key from db - model names loops around them 
+// - if that model has any associations(connections between tables)
 // run associate method, pass database
 Object.keys(db).forEach(function (modelName) {
   if (db[modelName].associate) {

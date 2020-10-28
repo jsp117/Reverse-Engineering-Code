@@ -1,18 +1,18 @@
 # Reverse Engineering Code 
 
 ## Description
-This application consists of a login, sign up, and members html page, that save user information to a MySQL database. It allows users to sign up for an account using an email address and password, hashes that password using Bcrypt and saves the hashed password to the database so that nobody can read it. After an account is created, it allows you to login using that email and password combination. If a user tries to navigate to the members page and is not logged in, it redirects them back to the sign up page. 
+This application consists of a login, sign up, and members html page, that save user information to a MySQL database. It allows users to sign up for an account using an email address and password, hashes that password using Bcrypt and saves the hashed password to the database so that nobody can read it. After an account is created, it allows you to login using that email and password combination. If a user tries to navigate to the members page and is not logged in, it redirects them back to the sign up page.
+
+ A walkthrough of the code is contained in the walkthrough file in this directory.
   
 ## Table of Contents
 * [Description](#description)
 * [Installation](#installation)
 * [Usage](#usage)
-* [Code Snippets](#code_snippets)
 * [Built With](#built_with)
 * [Contributors](#contributors)
 * [Author](#author)
 * [License](#license)
-
 
 ## Installation
 
@@ -22,16 +22,7 @@ To install all dependencies, run Npm install in your terminal while opened to th
 
 To run this application, open your terminal to the folder it is located in and type "npm install". When those files are finished downloading type "node server.js" to run the application. Type in an email address with the format "text@host.com" and a password to create an account. After creating account, you may log in using that email and password combination. 
 
-
-## Code Snippets
-
-This code snippet displays 
-
-![Image title](link)
-
-This code snippet  
-
-![image title](link)
+![GIF of Usage](/public/assets/passport.gif)
 
 ## Built_with
 
