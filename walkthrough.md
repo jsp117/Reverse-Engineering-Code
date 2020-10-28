@@ -1,4 +1,13 @@
-# Description of Code
+# Code Walkthrough
+
+## Table of Contents
+* [Config Folder](#config)
+* [Models Folder](#models)
+* [Public Folder](#public)
+* [JS Folder](#js_folder)
+* [Routes](#routes)
+* [Base Folder](#base_folder)
+* [Additional Features](#additional_features)
 
 ## Config
 
@@ -34,7 +43,7 @@ This file contains the html for the members page. It includes a navbar and a con
 
 This file contains the html for the signup page. It includes a navbar, and a form containing two text fields and a button. These elements are referred to in signup.js.
 
-## JS Folder
+## JS_Folder
 
 ## login.js
 The login.js file contains the front-end JavaScript for the login.html page. On line 1, we have a function that waits until the page is ready to run. It contains the event handlers for this page. At the top, variables are initialized to reference the login fields on the html. On line 8 we have the event handler for submitting the form. It prevents the page from refreshing on click, and sets the variable user data to the values in the email-input field and password-input field, taking away extra space on either side using the trim function. If either field is left empty, it does not return anything. If the user inputs something in both fields, the loginUser function is called using the object userData. The loginUser function uses an http post method to call the route /api/login which is set up in the api-routes.js file, and passes on the email and password input. It then replaces the current page with the /members route. If there is an error, it is logged. 
@@ -56,10 +65,10 @@ This file contains all api routes for the site. It requires our models and passp
 ## html-routes.js
 This file contains all html routes for the site, used to display different html files and changing the information displayed. It requires path so that realtive routes can be used. It also requires the middleware isAuthenticated.js in order to check if a user is logged in, controlling what is displayed for logged in and logged out users. on line 9, the base route "/" is used. The if statement starting on 11 controls what is shown for users with an account, and those without. If the user has an account, they are redirected to the /members page. If not, they are directed to the signup page. On line 17, the /login route is used. If the user has an account they are redirected to the /members page. If not they are sent to the login page. On line 27, the isAuthenticated function is used to check if a user is logged in or not. If a user without an account tries to access the /members route they are redirected to the signup page. 
 
-## Base Folder
+## Base_Folder
 
 ## server.js
 The server.js file sets up our connection using express. It requires express, express-session, passport, and the models folder. Express provides the web framework used to set up the site. Express session creates a session id and saves it as a cookie. It also saves session-data to the database including the date created and date updated. Passport keeps track of a users login status. The model is used to sync the database and display connection status in console. 
 
-## Additional Features
-Some features that could be added are better error handling for incorrect usernames/passwords, and error handling for inputting the same email multiple times in signup. As it is, entering an incorrect password simply resets the field without letting the user know anything is wrong. An alert or modal popup would be an easy fix for this. Entering the same email in registration will return the error [Object, object], and doesn't tell the what went wrong. You could check this by checking against pre existing usernames in the database. 
+## Additional_Features
+Some features that could be added are better error handling for incorrect usernames/passwords, and error handling for inputting the same email multiple times in signup. As it is, entering an incorrect password simply resets the field without letting the user know anything is wrong. An alert or modal popup would be an easy fix for this. Entering the same email in registration will return the error [Object, object], and doesn't tell the what went wrong. You could check this by checking against pre existing usernames in the database. I would also require a user to use a password longer than 8 characters and have at least one uppercase, one lowercase, and one special character. This could be done in the front end javascript using regex and pop up a modal explaining the issue if they do not follow requirements. 
