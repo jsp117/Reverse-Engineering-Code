@@ -4,10 +4,10 @@
 * [Config Folder](#config)
 * [Models Folder](#models)
 * [Public Folder](#public)
-* [JS Folder](#js_folder)
+* [JS Folder](#js-folder)
 * [Routes](#routes)
-* [Base Folder](#base_folder)
-* [Additional Features](#additional_features)
+* [Base Folder](#base-folder)
+* [Additional Features](#additional-features)
 
 ## Config
 
@@ -36,7 +36,7 @@ The index.js file inside the models folder consists of Sequelize boilerplate cod
 
 
 ## user.js
-The file user.js is the model for the site. It generates the tables and columns in MySQL. On line 5 the class "User" is created by declaring it and defining it through sequelize. This class sets up the table "Users" in Sequelize. Even though it is initialized as "User", sequelize automatically adds an "s". This table has the columns of email - set as String in line 7. It is not allowed to be null, must be unique, and is validated to be an email consisting of the format "text@hostname.com". The password column begins at line 16 and is also defined as a string and not allowed to be null. On line 19 a prototype is added to User which adds a custom method that checks if the unhashed password entered by the user matches the hashed password in the database. This file requires Bcrypt which is used to encrypt passwords. On line 27 a hook is added that runs before a user is created, automatically hashing passwords as they are added.
+The file user.js is the model for the site. It generates the tables and columns in MySQL. On line 5 the class "User" is created by declaring it and defining it through sequelize. This class sets up the table "Users" in Sequelize. Even though it is initialized as "User", sequelize automatically adds an "s". This table has the columns of email - set as String in line 7. It is not allowed to be null, must be unique, and is validated to be an email consisting of the format "text" + "@hostname" + ".com". The password column begins at line 16 and is also defined as a string and not allowed to be null. On line 19 a prototype is added to User which adds a custom method that checks if the unhashed password entered by the user matches the hashed password in the database. This file requires Bcrypt which is used to encrypt passwords. On line 27 a hook is added that runs before a user is created, automatically hashing passwords as they are added.
 
 This image shows the Class "User" creation, which is the template for the users table in MySQL. Sequelize utilizes this file to create the table.
 
@@ -57,7 +57,7 @@ This file contains the html for the members page. It includes a navbar and a con
 
 This file contains the html for the signup page. It includes a navbar, and a form containing two text fields and a button. These elements are referred to in signup.js.
 
-## JS_Folder
+## JS Folder
 
 ## login.js
 The login.js file contains the front-end JavaScript for the login.html page. On line 1, we have a function that waits until the page is ready to run. It contains the event handlers for this page. At the top, variables are initialized to reference the login fields on the html. On line 8 we have the event handler for submitting the form. It prevents the page from refreshing on click, and sets the variable user data to the values in the email-input field and password-input field, taking away extra space on either side using the trim function. If either field is left empty, it does not return anything. If the user inputs something in both fields, the loginUser function is called using the object userData. The loginUser function uses an http post method to call the route /api/login which is set up in the api-routes.js file, and passes on the email and password input. It then replaces the current page with the /members route. If there is an error, it is logged. 
@@ -91,7 +91,7 @@ This image displays the code for the login html route. If a user is logged in, i
 
 ![HTML Routes](/public/assets/htmlroutes.png)
 
-## Base_Folder
+## Base Folder
 
 ## server.js
 The server.js file sets up our connection using express. It requires express, express-session, passport, and the models folder. Express provides the web framework used to set up the site. Express session creates a session id and saves it as a cookie. It also saves session-data to the database including the date created and date updated. Passport keeps track of a users login status. The model is used to sync the database and display connection status in console. The server code also requires routes to set them up properly.
@@ -99,5 +99,5 @@ The server.js file sets up our connection using express. It requires express, ex
 ## package.json
 This file contains all of our dependencies. As long as it is included, we can run the command "npm install" to install all required dependencies.
 
-## Additional_Features
+## Additional Features
 Some features that could be added are better error handling for incorrect usernames/passwords, and error handling for inputting the same email multiple times in signup. As it is, entering an incorrect password simply resets the field without letting the user know anything is wrong. An alert or modal popup would be an easy fix for this. Entering the same email in registration will return the error [Object, object], and doesn't tell the what went wrong. You could check this by checking against pre existing usernames in the database. I would also require a user to use a password longer than 8 characters and have at least one uppercase, one lowercase, and one special character. This could be done in the front end javascript using regex and pop up a modal explaining the issue if they do not follow requirements. 
